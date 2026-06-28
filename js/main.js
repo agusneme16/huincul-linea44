@@ -1,10 +1,4 @@
-/* ============================================================
-   main.js — Interacciones de la página (vanilla ES6+)
-   · Tema claro/oscuro con persistencia
-   · Menú mobile (hamburguesa)
-   · Año dinámico en el pie
-   · Mapa del recorrido (Leaflet) con datos oficiales
-   ============================================================ */
+
 
 (function () {
   'use strict';
@@ -174,9 +168,6 @@
     return { iniciar };
   })();
 
-  /* --------------------------------------------------------
-     Arranque
-     -------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
     GestorTema.iniciar();
     MenuMovil.iniciar();
