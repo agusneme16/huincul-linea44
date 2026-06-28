@@ -1059,6 +1059,11 @@
 }
 
 @media (min-width: 768px) {
+  /* Header: mostrar nav de escritorio y ocultar el menú mobile */
+  .nav-escritorio { display: flex; }
+  .btn-menu { display: none; }
+  .nav-movil { display: none !important; }
+
   .section { padding-block: var(--espacio-20); }
   .seccion-cabecera { margin-bottom: var(--espacio-16); }
   .seccion-cabecera h2 { font-size: var(--texto-5xl); }
@@ -1070,11 +1075,11 @@
 
   .btn-volver__etiqueta { display: inline; }
 
-  .paradas-grilla { grid-template-columns: repeat(2, 1fr); }
-  .datos-grilla { grid-template-columns: repeat(2, 1fr); }
+  .paradas-grilla { grid-template-columns: repeat(3, 1fr); }
+  .datos-grilla { grid-template-columns: repeat(4, 1fr); }
   .caracteristicas-lista { grid-template-columns: repeat(2, 1fr); }
   .tarifas-grilla { grid-template-columns: repeat(3, 1fr); }
-  .accesibilidad-grilla { grid-template-columns: repeat(2, 1fr); }
+  .accesibilidad-grilla { grid-template-columns: repeat(3, 1fr); }
   .pie-grilla { grid-template-columns: repeat(3, 1fr); }
   .caracteristicas-tarjeta { margin-top: var(--espacio-12); }
 
