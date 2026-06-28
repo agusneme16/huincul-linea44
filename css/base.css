@@ -1,0 +1,165 @@
+/* ============================================================
+   base.css — Reset, tipografía base y utilidades
+   ============================================================ */
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--tamano-fuente-raiz);
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Compensa el header fijo al saltar a anclas (#recorrido, etc.) */
+  scroll-padding-top: calc(var(--encabezado-alto) + var(--espacio-4));
+}
+
+body {
+  min-height: 100%;
+  font-family: var(--fuente-sans);
+  font-size: var(--texto-base);
+  font-weight: var(--peso-normal);
+  line-height: var(--interlineado-normal);
+  background-color: var(--color-fondo);
+  color: var(--color-frente);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: var(--texto-base);
+  font-weight: var(--peso-medio);
+  line-height: var(--interlineado-normal);
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* ---------- Jerarquía tipográfica base ---------- */
+h1, h2, h3, h4 {
+  font-weight: var(--peso-medio);
+  line-height: var(--interlineado-ajustado);
+  letter-spacing: var(--interletra-compacta);
+}
+
+p {
+  line-height: var(--interlineado-normal);
+}
+
+/* ---------- Accesibilidad: foco visible ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-linea-44);
+  outline-offset: 2px;
+  border-radius: var(--radio-lg);
+}
+
+/* Solo oculta el outline cuando NO es navegación por teclado */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- Utilidades ---------- */
+
+/* Contenedor centrado con ancho máximo */
+.contenedor {
+  width: 100%;
+  max-width: var(--contenedor-max);
+  margin-inline: auto;
+  padding-inline: var(--contenedor-relleno);
+}
+
+/* Solo lectores de pantalla */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Icono SVG (sprite con <use>) — stroke heredado vía currentColor */
+/* Íconos: cada .svg de assets/iconos se carga como máscara y se colorea con
+   currentColor (hereda el color del texto/contenedor: modo claro/oscuro, botones). */
+.icono {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: var(--icono-url) no-repeat center / contain;
+  mask: var(--icono-url) no-repeat center / contain;
+}
+
+.icono--luna            { --icono-url: url(../assets/iconos/luna.svg); }
+.icono--sol             { --icono-url: url(../assets/iconos/sol.svg); }
+.icono--menu            { --icono-url: url(../assets/iconos/menu.svg); }
+.icono--x               { --icono-url: url(../assets/iconos/x.svg); }
+.icono--flecha-izq      { --icono-url: url(../assets/iconos/flecha-izq.svg); }
+.icono--flecha-der      { --icono-url: url(../assets/iconos/flecha-der.svg); }
+.icono--pin             { --icono-url: url(../assets/iconos/pin.svg); }
+.icono--edificio        { --icono-url: url(../assets/iconos/edificio.svg); }
+.icono--hospital        { --icono-url: url(../assets/iconos/hospital.svg); }
+.icono--tren            { --icono-url: url(../assets/iconos/tren.svg); }
+.icono--reloj           { --icono-url: url(../assets/iconos/reloj.svg); }
+.icono--refrescar       { --icono-url: url(../assets/iconos/refrescar.svg); }
+.icono--calendario      { --icono-url: url(../assets/iconos/calendario.svg); }
+.icono--tarjeta-credito { --icono-url: url(../assets/iconos/tarjeta-credito.svg); }
+.icono--usuario         { --icono-url: url(../assets/iconos/usuario.svg); }
+.icono--corazon         { --icono-url: url(../assets/iconos/corazon.svg); }
+.icono--usuario-check   { --icono-url: url(../assets/iconos/usuario-check.svg); }
+.icono--accesibilidad   { --icono-url: url(../assets/iconos/accesibilidad.svg); }
+.icono--sillon          { --icono-url: url(../assets/iconos/sillon.svg); }
+.icono--cartel          { --icono-url: url(../assets/iconos/cartel.svg); }
+.icono--volumen         { --icono-url: url(../assets/iconos/volumen.svg); }
+.icono--monitor         { --icono-url: url(../assets/iconos/monitor.svg); }
+.icono--mano-corazon    { --icono-url: url(../assets/iconos/mano-corazon.svg); }
+
+/* Breakpoints de referencia (mobile-first):
+   sm ≥ 640px · md ≥ 768px · lg ≥ 1024px · xl ≥ 1280px */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

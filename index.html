@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Línea 44 · Puente Alsina ↔ Barrancas de Belgrano</title>
+    <meta
+      name="description"
+      content="Recorrido, paradas, horarios, tarifas, accesibilidad y mapa de la Línea 44 de Huincul Transportes: Puente Alsina ↔ Barrancas de Belgrano."
+    />
+
+    <link rel="icon" href="assets/img/argentinosaurus_huincul.png" />
+
+    <!-- Leaflet (mapa interactivo) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+
+    <!-- Design System + estilos -->
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- ========================================================
+         HEADER
+         ======================================================== -->
+    <header class="encabezado">
+      <div class="contenedor encabezado__interno">
+        <div class="encabezado__izquierda">
+          <a class="marca" href="#inicio" aria-label="Huincul Transportes · Línea 44 — inicio">
+            <img
+              class="marca__logo"
+              src="assets/img/argentinosaurus_huincul.png"
+              alt="Logo de Huincul Transportes"
+            />
+            <span class="marca__texto">
+              <span class="marca__nombre">Huincul Transportes</span>
+              <span class="marca__subtitulo">Línea 44</span>
+            </span>
+          </a>
+
+          <nav class="nav-escritorio" aria-label="Navegación principal">
+            <a href="#recorrido">Recorrido</a>
+            <a href="#paradas">Paradas</a>
+            <a href="#datos">Datos</a>
+            <a href="#horarios">Horarios</a>
+            <a href="#tarifas">Tarifas</a>
+            <a href="#accesibilidad">Accesibilidad</a>
+            <a href="#mapa">Mapa</a>
+          </nav>
+        </div>
+
+        <div class="encabezado__derecha">
+          <a
+            class="btn-volver"
+            href="https://smog-trice-53446423.figma.site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icono icono--flecha-izq" aria-hidden="true"></span>
+            <span class="btn-volver__etiqueta">Volver</span>
+          </a>
+
+          <button id="boton-tema" class="btn-icono" type="button" aria-label="Cambiar tema claro u oscuro">
+            <span id="tema-icono" class="icono icono--luna" aria-hidden="true"></span>
+          </button>
+
+          <button
+            id="boton-menu"
+            class="btn-icono btn-menu"
+            type="button"
+            aria-label="Abrir o cerrar el menú"
+            aria-controls="menu-movil"
+            aria-expanded="false"
+          >
+            <span id="menu-icono" class="icono icono--menu" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú mobile -->
+      <div id="menu-movil" class="nav-movil">
+        <nav class="contenedor nav-movil__lista" aria-label="Navegación principal (mobile)">
+          <a href="#recorrido">Recorrido</a>
+          <a href="#paradas">Paradas</a>
+          <a href="#datos">Datos</a>
+          <a href="#horarios">Horarios</a>
+          <a href="#tarifas">Tarifas</a>
+          <a href="#accesibilidad">Accesibilidad</a>
+          <a href="#mapa">Mapa</a>
+          <a
+            class="nav-movil__volver"
+            href="https://smog-trice-53446423.figma.site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icono icono--flecha-izq" aria-hidden="true"></span>
+            <span>Volver a la landing</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================================================
+         MAIN
+         ======================================================== -->
+    <main id="inicio">
+      <!-- HERO -->
+      <section class="portada contenedor">
+        <span class="portada__insignia">
+          <span>Huincul Transportes · Línea 44</span>
+        </span>
+
+        <div class="portada__numero">44</div>
+
+        <h1 class="portada__titulo">
+          Puente Alsina
+          <span class="icono icono--flecha-der" aria-hidden="true"></span>
+          Barrancas de Belgrano
+        </h1>
+
+        <p class="portada__subtitulo">Conectando el sur y el norte de la ciudad</p>
+      </section>
+
+      <!-- RECORRIDO -->
+      <section id="recorrido" class="seccion seccion--tenue">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Recorrido</h2>
+            <p>Un viaje que atraviesa la ciudad de sur a norte</p>
+          </div>
+
+          <div class="trayecto">
+            <div class="trayecto__linea" aria-hidden="true"></div>
+            <ul class="trayecto__lista">
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Nueva Pompeya</div><div class="trayecto__zona">Sur</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Boedo</div><div class="trayecto__zona">Sur</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Almagro</div><div class="trayecto__zona">Centro</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Caballito</div><div class="trayecto__zona">Centro</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Villa Crespo</div><div class="trayecto__zona">Centro</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Chacarita</div><div class="trayecto__zona">Norte</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Colegiales</div><div class="trayecto__zona">Norte</div></div>
+                </div>
+              </li>
+              <li class="trayecto__elemento">
+                <div class="trayecto__marcador"><span class="trayecto__punto" aria-hidden="true"></span></div>
+                <div class="trayecto__tarjeta tarjeta">
+                  <div class="trayecto__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                  <div><div class="trayecto__nombre">Belgrano</div><div class="trayecto__zona">Norte</div></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARADAS PRINCIPALES -->
+      <section id="paradas" class="seccion">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Paradas principales</h2>
+            <p>Los puntos clave a lo largo del recorrido</p>
+          </div>
+
+          <div class="paradas-grilla">
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Puente Alsina</h3><p class="parada-tarjeta__detalle">Cabecera sur</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--hospital" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Hospital Penna</h3><p class="parada-tarjeta__detalle">Servicio de salud</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Av. Sáenz y Amancio Alcorta</h3><p class="parada-tarjeta__detalle">Conexión importante</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--edificio" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Boedo</h3><p class="parada-tarjeta__detalle">Av. Boedo / Av. San Juan</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--edificio" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Almagro</h3><p class="parada-tarjeta__detalle">Zona comercial</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--edificio" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Av. Corrientes (Once)</h3><p class="parada-tarjeta__detalle">Centro neurálgico</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--tren" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Estación Lacroze</h3><p class="parada-tarjeta__detalle">Chacarita</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--edificio" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Colegiales</h3><p class="parada-tarjeta__detalle">Barrio residencial</p></div>
+              </div>
+            </article>
+            <article class="parada-tarjeta tarjeta tarjeta--hover">
+              <div class="parada-tarjeta__fila">
+                <div class="parada-tarjeta__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+                <div><h3 class="parada-tarjeta__nombre">Barrancas de Belgrano</h3><p class="parada-tarjeta__detalle">Cabecera norte</p></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DATOS DEL SERVICIO -->
+      <section id="datos" class="seccion seccion--tenue">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Datos del servicio</h2>
+            <p>Información útil para planificar tu viaje</p>
+          </div>
+
+          <div class="datos-grilla">
+            <article class="dato-tarjeta tarjeta tarjeta--hover">
+              <div class="dato-tarjeta__icono icono-insignia"><span class="icono icono--pin" aria-hidden="true"></span></div>
+              <div class="dato-tarjeta__valor">63</div>
+              <div class="dato-tarjeta__etiqueta">Paradas</div>
+              <div class="dato-tarjeta__detalle">En total</div>
+            </article>
+            <article class="dato-tarjeta tarjeta tarjeta--hover">
+              <div class="dato-tarjeta__icono icono-insignia"><span class="icono icono--reloj" aria-hidden="true"></span></div>
+              <div class="dato-tarjeta__valor">65-75</div>
+              <div class="dato-tarjeta__etiqueta">Minutos de recorrido</div>
+              <div class="dato-tarjeta__detalle">Según franja horaria</div>
+            </article>
+            <article class="dato-tarjeta tarjeta tarjeta--hover">
+              <div class="dato-tarjeta__icono icono-insignia"><span class="icono icono--refrescar" aria-hidden="true"></span></div>
+              <div class="dato-tarjeta__valor">8-12</div>
+              <div class="dato-tarjeta__etiqueta">Minutos</div>
+              <div class="dato-tarjeta__detalle">Frecuencia en hora pico</div>
+            </article>
+            <article class="dato-tarjeta tarjeta tarjeta--hover">
+              <div class="dato-tarjeta__icono icono-insignia"><span class="icono icono--calendario" aria-hidden="true"></span></div>
+              <div class="dato-tarjeta__valor">24/7</div>
+              <div class="dato-tarjeta__etiqueta">Servicio</div>
+              <div class="dato-tarjeta__detalle">Todos los días</div>
+            </article>
+          </div>
+
+          <div class="caracteristicas-tarjeta tarjeta">
+            <h3>Características adicionales</h3>
+            <div class="caracteristicas-lista">
+              <div class="caracteristica">
+                <span class="caracteristica__punto" aria-hidden="true"></span>
+                <div>
+                  <p class="caracteristica__titulo">Unidades modernas</p>
+                  <p class="caracteristica__texto">Accesibilidad para personas con movilidad reducida</p>
+                </div>
+              </div>
+              <div class="caracteristica">
+                <span class="caracteristica__punto" aria-hidden="true"></span>
+                <div>
+                  <p class="caracteristica__titulo">Flota ecológica</p>
+                  <p class="caracteristica__texto">Algunas unidades eléctricas en servicio</p>
+                </div>
+              </div>
+              <div class="caracteristica">
+                <span class="caracteristica__punto" aria-hidden="true"></span>
+                <div>
+                  <p class="caracteristica__titulo">Frecuencia normal</p>
+                  <p class="caracteristica__texto">Cada 15-20 minutos en horario regular</p>
+                </div>
+              </div>
+              <div class="caracteristica">
+                <span class="caracteristica__punto" aria-hidden="true"></span>
+                <div>
+                  <p class="caracteristica__titulo">Servicio continuo</p>
+                  <p class="caracteristica__texto">Sin interrupciones durante todo el día</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HORARIOS -->
+      <section id="horarios" class="seccion">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Horarios del servicio</h2>
+            <p>Frecuencia según la franja horaria y el día</p>
+          </div>
+
+          <div class="horarios-contenedor">
+            <div class="horarios-tarjeta tarjeta">
+              <div class="horarios-scroll">
+                <table class="horarios-tabla">
+                  <thead>
+                    <tr>
+                      <th scope="col">Día</th>
+                      <th scope="col">Franja horaria</th>
+                      <th scope="col">Frecuencia</th>
+                      <th scope="col">Tiempo de espera promedio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="es-dia">Lunes a viernes</td>
+                      <td class="es-atenuado">Hora pico (6:30 - 9:30 / 17:00 - 20:00)</td>
+                      <td class="es-atenuado">Cada 6-8 min</td>
+                      <td><span class="insignia-espera">7 min</span></td>
+                    </tr>
+                    <tr>
+                      <td class="es-dia">Lunes a viernes</td>
+                      <td class="es-atenuado">Horario regular (9:30 - 17:00)</td>
+                      <td class="es-atenuado">Cada 10-12 min</td>
+                      <td><span class="insignia-espera">11 min</span></td>
+                    </tr>
+                    <tr>
+                      <td class="es-dia">Lunes a viernes</td>
+                      <td class="es-atenuado">Noche (20:00 - 23:00)</td>
+                      <td class="es-atenuado">Cada 15-20 min</td>
+                      <td><span class="insignia-espera">18 min</span></td>
+                    </tr>
+                    <tr>
+                      <td class="es-dia">Lunes a viernes</td>
+                      <td class="es-atenuado">Madrugada (23:00 - 6:30)</td>
+                      <td class="es-atenuado">Cada 25-30 min</td>
+                      <td><span class="insignia-espera">27 min</span></td>
+                    </tr>
+                    <tr>
+                      <td class="es-dia">Sábados y domingos</td>
+                      <td class="es-atenuado">Diurno (7:00 - 22:00)</td>
+                      <td class="es-atenuado">Cada 12-15 min</td>
+                      <td><span class="insignia-espera">13 min</span></td>
+                    </tr>
+                    <tr>
+                      <td class="es-dia">Sábados y domingos</td>
+                      <td class="es-atenuado">Nocturno (22:00 - 7:00)</td>
+                      <td class="es-atenuado">Cada 30-40 min</td>
+                      <td><span class="insignia-espera">35 min</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="horarios-nota">
+              <p>
+                Horarios orientativos. Para información en tiempo real consultá las apps
+                Cuando Subo o BA Cómo Llego.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TARIFAS -->
+      <section id="tarifas" class="seccion">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Tarifa y formas de pago</h2>
+            <p>Viajá cómodo con tu tarjeta SUBE</p>
+          </div>
+
+          <div class="sube-contenedor">
+            <div class="sube-tarjeta tarjeta">
+              <div class="sube-tarjeta__icono icono-insignia"><span class="icono icono--tarjeta-credito" aria-hidden="true"></span></div>
+              <h3>Únicamente tarjeta SUBE</h3>
+              <p>
+                El pago del pasaje se realiza exclusivamente con tarjeta SUBE.
+                No se acepta efectivo en las unidades.
+              </p>
+            </div>
+          </div>
+
+          <div class="tarifas-grilla">
+            <article class="tarifa-tarjeta tarjeta tarjeta--hover">
+              <div class="tarifa-tarjeta__interno">
+                <div class="tarifa-tarjeta__icono icono-insignia"><span class="icono icono--usuario" aria-hidden="true"></span></div>
+                <h3>Tarifa general</h3>
+                <p>Aplica para todos los pasajeros mayores de edad sin atributos especiales</p>
+              </div>
+            </article>
+            <article class="tarifa-tarjeta tarjeta tarjeta--hover">
+              <div class="tarifa-tarjeta__interno">
+                <div class="tarifa-tarjeta__icono icono-insignia"><span class="icono icono--corazon" aria-hidden="true"></span></div>
+                <h3>Atributo social</h3>
+                <p>Descuento para beneficiarios de programas sociales y estudiantes</p>
+              </div>
+            </article>
+            <article class="tarifa-tarjeta tarjeta tarjeta--hover">
+              <div class="tarifa-tarjeta__interno">
+                <div class="tarifa-tarjeta__icono icono-insignia"><span class="icono icono--usuario-check" aria-hidden="true"></span></div>
+                <h3>Jubilados y pensionados</h3>
+                <p>Tarifa diferencial para adultos mayores con credencial vigente</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACCESIBILIDAD -->
+      <section id="accesibilidad" class="seccion seccion--tenue">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Accesibilidad para todos</h2>
+            <p>Un servicio pensado para que toda persona pueda viajar con autonomía y comodidad</p>
+          </div>
+
+          <div class="accesibilidad-grilla">
+            <article class="accesibilidad-tarjeta tarjeta tarjeta--hover">
+              <div class="accesibilidad-tarjeta__icono icono-insignia"><span class="icono icono--accesibilidad" aria-hidden="true"></span></div>
+              <h3>Rampas y piso bajo</h3>
+              <p>Todas las unidades cuentan con rampa de acceso y piso bajo para facilitar el ingreso de personas con movilidad reducida, sillas de ruedas y cochecitos.</p>
+            </article>
+            <article class="accesibilidad-tarjeta tarjeta tarjeta--hover">
+              <div class="accesibilidad-tarjeta__icono icono-insignia"><span class="icono icono--sillon" aria-hidden="true"></span></div>
+              <h3>Espacios reservados</h3>
+              <p>Cada unidad incluye espacios delimitados para sillas de ruedas y asientos prioritarios para embarazadas, personas mayores y con movilidad reducida.</p>
+            </article>
+            <article class="accesibilidad-tarjeta tarjeta tarjeta--hover">
+              <div class="accesibilidad-tarjeta__icono icono-insignia"><span class="icono icono--cartel" aria-hidden="true"></span></div>
+              <h3>Señalización clara</h3>
+              <p>Carteles internos y externos con tipografía legible y alto contraste, indicando número de línea, destino y próxima parada.</p>
+            </article>
+            <article class="accesibilidad-tarjeta tarjeta tarjeta--hover">
+              <div class="accesibilidad-tarjeta__icono icono-insignia"><span class="icono icono--volumen" aria-hidden="true"></span></div>
+              <h3>Información sonora y visual</h3>
+              <p>Anuncio sonoro automático de cada parada y display digital con el nombre de la próxima estación.</p>
+            </article>
+            <article class="accesibilidad-tarjeta tarjeta tarjeta--hover">
+              <div class="accesibilidad-tarjeta__icono icono-insignia"><span class="icono icono--monitor" aria-hidden="true"></span></div>
+              <h3>Diseño web inclusivo</h3>
+              <p>Esta página fue diseñada con contraste adecuado de colores, tipografía legible, modo claro y oscuro, y navegación intuitiva siguiendo estándares WCAG 2.1 nivel AA.</p>
+            </article>
+            <article class="accesibilidad-tarjeta tarjeta tarjeta--hover">
+              <div class="accesibilidad-tarjeta__icono icono-insignia"><span class="icono icono--mano-corazon" aria-hidden="true"></span></div>
+              <h3>Atención prioritaria</h3>
+              <p>Capacitación constante de conductores en trato accesible, asistencia a personas con discapacidad visual y respeto a los asientos prioritarios.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAPA -->
+      <section id="mapa" class="seccion seccion--tenue">
+        <div class="contenedor">
+          <div class="seccion-cabecera">
+            <h2>Mapa del recorrido</h2>
+            <p>Trazado oficial de la Línea 44 sobre CABA</p>
+          </div>
+
+          <div class="mapa-contenedor">
+            <div class="mapa-pila">
+              <div class="mapa-marco">
+                <div id="mapa-leaflet" role="application" aria-label="Mapa interactivo del recorrido de la Línea 44"></div>
+              </div>
+
+              <div class="mapa-leyenda">
+                <div class="mapa-leyenda__item">
+                  <span class="mapa-leyenda__muestra mapa-leyenda__muestra--ida" aria-hidden="true"></span>
+                  <span>IDA: Puente Alsina → Barrancas</span>
+                </div>
+                <div class="mapa-leyenda__item">
+                  <span class="mapa-leyenda__muestra mapa-leyenda__muestra--vuelta" aria-hidden="true"></span>
+                  <span>VUELTA: Barrancas → Puente Alsina</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mapa-nota">
+              <p>
+                Datos oficiales del Gobierno de la Ciudad de Buenos Aires ·
+                Hacé click en los marcadores para ver las paradas
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="seccion llamado">
+        <div class="contenedor llamado__interno">
+          <h2>¿Buscás otra línea?</h2>
+          <p>Explorá todas nuestras líneas y encontrá la que mejor se adapte a tu recorrido</p>
+          <a
+            class="btn-primario"
+            href="https://smog-trice-53446423.figma.site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="icono icono--flecha-izq" aria-hidden="true"></span>
+            <span>Volver a la landing</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================
+         FOOTER
+         ======================================================== -->
+    <footer class="pie">
+      <div class="contenedor">
+        <div class="pie-grilla">
+          <div class="pie-marca">
+            <div class="pie-marca__fila">
+              <img
+                class="pie-logo"
+                src="assets/img/argentinosaurus_huincul.png"
+                alt="Logo de Huincul Transportes"
+              />
+              <span class="pie-marca__nombre">Huincul Transportes</span>
+            </div>
+            <p class="pie-marca__lema">Conectando Buenos Aires desde 1985</p>
+          </div>
+
+          <div class="pie-columna pie-columna--enlaces">
+            <h3>Enlaces</h3>
+            <ul>
+              <li><a href="#recorrido">Recorrido</a></li>
+              <li><a href="#paradas">Paradas</a></li>
+              <li><a href="#mapa">Mapa</a></li>
+            </ul>
+          </div>
+
+          <div class="pie-columna pie-columna--info">
+            <h3>Línea 44</h3>
+            <ul>
+              <li>Puente Alsina ↔ Barrancas de Belgrano</li>
+              <li>Servicio 24/7</li>
+              <li>63 paradas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pie-abajo">
+          <p>© <span id="anio-actual">2026</span> Huincul Transportes. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================================================
+         Scripts (al final del body)
+         ======================================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="js/route-data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
