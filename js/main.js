@@ -75,7 +75,7 @@
       });
 
       // Cerrar si se pasa a viewport escritorio.
-      const mq = window.matchMedia('(min-width: 1024px)');
+      const mq = window.matchMedia('(min-width: 768px)');
       mq.addEventListener('change', (e) => {
         if (e.matches) definirAbierto(false);
       });
@@ -150,8 +150,7 @@
         }),
       }).addTo(mapa);
 
-      // Marcadores de las paradas principales: círculos vectoriales
-      // (mismo renderer SVG que las líneas, sin imágenes externas).
+      // Marcadores de las paradas principales.
       paradas.forEach((p) => {
         L.circleMarker([p.lat, p.lng], {
           radius: 7,

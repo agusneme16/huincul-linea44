@@ -337,7 +337,7 @@
 /* ============================================================
    2. SECCIONES Y ENCABEZADOS COMUNES
    ============================================================ */
-.section {
+.seccion {
   padding-block: var(--espacio-12);
 }
 
@@ -1064,7 +1064,7 @@
   .btn-menu { display: none; }
   .nav-movil { display: none !important; }
 
-  .section { padding-block: var(--espacio-20); }
+  .seccion { padding-block: var(--espacio-20); }
   .seccion-cabecera { margin-bottom: var(--espacio-16); }
   .seccion-cabecera h2 { font-size: var(--texto-5xl); }
 
