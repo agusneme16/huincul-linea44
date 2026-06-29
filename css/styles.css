@@ -131,7 +131,7 @@
 }
 
 /* ------------------------------------------------------------
-   Modo oscuro (.oscuro en <html>) — overrides del theme.css
+   Modo oscuro: se activa con la clase .oscuro en <html>
    ------------------------------------------------------------ */
 .oscuro {
   --color-fondo:           oklch(0.145 0 0);
