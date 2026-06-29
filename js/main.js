@@ -116,11 +116,11 @@
       const el = document.getElementById('mapa-leaflet');
       if (!el || typeof L === 'undefined' || !window.RECORRIDO_LINEA44) return;
 
-      // Íconos de marcador desde CDN (Leaflet no los resuelve solo).
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      const iconoParada = L.divIcon({
+        className: 'marcador-parada',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+        popupAnchor: [0, -10],
       });
 
       const mapa = L.map(el).setView([-34.6086, -58.44], 12);
@@ -159,7 +159,7 @@
 
       // Marcadores de las paradas principales.
       paradas.forEach((p) => {
-        L.marker([p.lat, p.lng])
+        L.marker([p.lat, p.lng], { icon: iconoParada })
           .addTo(mapa)
           .bindPopup('<div class="popup-parada">' + p.nombre + '</div>');
       });

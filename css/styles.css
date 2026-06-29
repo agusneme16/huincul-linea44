@@ -929,6 +929,16 @@
   color: var(--color-texto-60);
 }
 
+/* Marcador de parada (divIcon propio, sin imágenes externas) */
+.marcador-parada {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radio-full);
+  background-color: var(--color-linea-44);
+  border: 3px solid #fff;
+  box-shadow: var(--sombra-md);
+}
+
 /* Popups de Leaflet */
 .leaflet-popup-content .popup-parada {
   font-size: var(--texto-sm);
