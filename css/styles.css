@@ -2,14 +2,14 @@
 :root {
   /* ---------- Paleta base (modo claro) ---------- */
   --color-fondo:              #ffffff;
-  --color-frente:              oklch(0.145 0 0);
+  --color-frente:              #0a0a0a;
   --color-tarjeta:            #ffffff;
-  --color-tarjeta-frente:         oklch(0.145 0 0);
-  --color-popover:         oklch(1 0 0);
-  --color-popover-frente:      oklch(0.145 0 0);
+  --color-tarjeta-frente:         #0a0a0a;
+  --color-popover:         #ffffff;
+  --color-popover-frente:      #0a0a0a;
   --color-primario:         #030213;
-  --color-primario-frente:      oklch(1 0 0);
-  --color-secundario:       oklch(0.95 0.0058 264.53);
+  --color-primario-frente:      #ffffff;
+  --color-secundario:       #f1f1f4;
   --color-secundario-frente:    #030213;
   --color-tenue:           #ececf0;
   --color-tenue-frente:        #717182;
@@ -19,7 +19,7 @@
   --color-destructivo-frente:  #ffffff;
   --color-borde:          rgba(0, 0, 0, 0.1);
   --color-input-fondo:        #f3f3f5;
-  --color-anillo:            oklch(0.708 0 0);
+  --color-anillo:            #a1a1a1;
 
   /* ---------- Color de marca ---------- */
   --color-linea-44:         rgb(255, 193, 7);   /* amarillo Línea 44 */
@@ -134,23 +134,23 @@
    Modo oscuro: se activa con la clase .oscuro en <html>
    ------------------------------------------------------------ */
 .oscuro {
-  --color-fondo:           oklch(0.145 0 0);
-  --color-frente:           oklch(0.985 0 0);
-  --color-tarjeta:         oklch(0.205 0 0);
-  --color-tarjeta-frente:      oklch(0.985 0 0);
-  --color-popover:      oklch(0.145 0 0);
-  --color-popover-frente:   oklch(0.985 0 0);
-  --color-primario:      oklch(0.985 0 0);
-  --color-primario-frente:   oklch(0.205 0 0);
-  --color-secundario:    oklch(0.269 0 0);
-  --color-secundario-frente: oklch(0.985 0 0);
-  --color-tenue:        oklch(0.269 0 0);
-  --color-tenue-frente:     oklch(0.708 0 0);
-  --color-acento:       oklch(0.269 0 0);
-  --color-acento-frente:    oklch(0.985 0 0);
-  --color-borde:       oklch(0.269 0 0);
-  --color-input-fondo:     oklch(0.269 0 0);
-  --color-anillo:         oklch(0.439 0 0);
+  --color-fondo:           #0a0a0a;
+  --color-frente:           #fafafa;
+  --color-tarjeta:         #171717;
+  --color-tarjeta-frente:      #fafafa;
+  --color-popover:      #0a0a0a;
+  --color-popover-frente:   #fafafa;
+  --color-primario:      #fafafa;
+  --color-primario-frente:   #171717;
+  --color-secundario:    #262626;
+  --color-secundario-frente: #fafafa;
+  --color-tenue:        #262626;
+  --color-tenue-frente:     #a1a1a1;
+  --color-acento:       #262626;
+  --color-acento-frente:    #fafafa;
+  --color-borde:       #262626;
+  --color-input-fondo:     #262626;
+  --color-anillo:         #525252;
 
   --color-pie-fondo:    #1a1a1a;
 
