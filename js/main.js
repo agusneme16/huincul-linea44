@@ -116,13 +116,6 @@
       const el = document.getElementById('mapa-leaflet');
       if (!el || typeof L === 'undefined' || !window.RECORRIDO_LINEA44) return;
 
-      const iconoParada = L.divIcon({
-        className: 'marcador-parada',
-        iconSize: [18, 18],
-        iconAnchor: [9, 9],
-        popupAnchor: [0, -10],
-      });
-
       const mapa = L.map(el).setView([-34.6086, -58.44], 12);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -157,9 +150,16 @@
         }),
       }).addTo(mapa);
 
-      // Marcadores de las paradas principales.
+      // Marcadores de las paradas principales: círculos vectoriales
+      // (mismo renderer SVG que las líneas, sin imágenes externas).
       paradas.forEach((p) => {
-        L.marker([p.lat, p.lng], { icon: iconoParada })
+        L.circleMarker([p.lat, p.lng], {
+          radius: 7,
+          color: '#ffffff',
+          weight: 3,
+          fillColor: '#ffc107',
+          fillOpacity: 1,
+        })
           .addTo(mapa)
           .bindPopup('<div class="popup-parada">' + p.nombre + '</div>');
       });
